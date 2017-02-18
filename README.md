@@ -10,13 +10,20 @@ The Docker images are built and deployed to https://hub.docker.com/r/sesamcommun
 - The extension should be reusable
 - The README file should contain an example
 
+## Fork and build
+
+All the extensions are ready up to be built with [http://travis-ci.org/](Travis CI).
+
+Steps to build your own fork:
+* Sign up at Dockerhub if you don't have an account
+* Fork the repository in Github
+* Sign up to Travis CI with your Github account
+* Enable the forked repository inside Travis CI
+* Add your DOCKER_USERNAME and DOCKER_PASSWORD as environment variables for the build inside Travis CI
+* Travis CI will build and deploy once you _push_ to the master branch of your repository
+* Share your improvements using Pull Requests
+
 ## FAQ
 
 ##### Q: I want you to build and deploy my extension as well!
-A: Just send an email to baard.johansen@sesam.io with a link to your repository and we'll sort it out!
-
-##### Q: Hey, I've fixed a bug to your extension. How do I get it built?
-A: Just submit a PR and it will be merged as soon as possible
-
-##### Q: You're not merging my PR and I need my changes to be built and deployed to Docker Hub!
-A: You can sign up for TravisCI and Dockerhub yourself and build and deploy to your own account while you wait.
+A: Just send an email to baard.johansen@sesam.io with a link to the repository and we'll sort it out!
