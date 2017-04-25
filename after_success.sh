@@ -1,6 +1,7 @@
 #!/bin/bash
 ## Deploys the master branch of a sesam-community project to dockerhub.
 # make the build fail on any commands
+set -v
 set -e
 SLUG="$TRAVIS_REPO_SLUG"
 REPO_NAME=${SLUG#sesam-community/}
