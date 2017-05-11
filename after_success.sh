@@ -5,7 +5,7 @@ set -v
 set -e
 SLUG="$TRAVIS_REPO_SLUG"
 REPO_NAME=${SLUG#sesam-community/}
-if [ "$TRAVIS_BRANCH" == "master" ]
+if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]
 then
   docker build -t sesamcommunity/$REPO_NAME .
   docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
