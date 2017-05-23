@@ -13,7 +13,7 @@ then
 fi
 if [ -n "$TRAVIS_TAG" ]
 then
-  docker build -t sesamcommunity/$REPO_NAME .
+  docker build -t sesamcommunity/$REPO_NAME:$TRAVIS_TAG .
   docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   docker push sesamcommunity/$REPO_NAME:$TRAVIS_TAG
 fi
