@@ -7,12 +7,13 @@ The Docker images are built and deployed to https://hub.docker.com/r/sesamcommun
 ## Requirements
 
 - The extension require a LICENSE file that makes this process legal
+- The extension should be usable from within Sesam
 - The extension should be reusable
 - The README file should contain an example
 
 ## Fork and build
 
-All the extensions are ready up to be built with [http://travis-ci.org/](Travis CI).
+All the extensions are ready up to be built with [Travis CI](http://travis-ci.org/).
 
 Steps to build your own fork:
 * Sign up at Dockerhub if you don't have an account
