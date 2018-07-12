@@ -1,5 +1,5 @@
 #!/bin/bash
-## Deploys the master branch of a sesam-community project to dockerhub.
+## Deploys the master branch and any tags of a sesam-community project to dockerhub.
 # make the build fail on any commands
 set -v
 set -e
@@ -10,4 +10,10 @@ then
   docker build -t sesamcommunity/$REPO_NAME .
   docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   docker push sesamcommunity/$REPO_NAME:latest
+fi
+if [ -n "$TRAVIS_TAG" ]
+then
+  docker build -t sesamcommunity/$REPO_NAME:$TRAVIS_TAG .
+  docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  docker push sesamcommunity/$REPO_NAME:$TRAVIS_TAG
 fi
