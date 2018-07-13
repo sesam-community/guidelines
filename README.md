@@ -24,7 +24,7 @@ You can contribute either
 
 Steps to build your own fork:
 * Sign up at Dockerhub if you don't have an account
-* prepare your repo & branch
+* Prepare your repo & branch
 * Sign up to Travis CI with your Github account
 * Enable the forked repository inside Travis CI
 * Add your DOCKER_USERNAME and DOCKER_PASSWORD as environment variables for the build inside Travis CI
