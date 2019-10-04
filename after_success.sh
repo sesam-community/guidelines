@@ -17,7 +17,7 @@ fi
 
 if [ -n "$DOCKER_REPO_TAG" ]
 then
-  docker build --label Commit="$TRAVIS_COMMIT" --label BuildNumber="$TRAVIS_BUILD_NUMBER" --label RepoSlug="$TRAVIS_REPO_SLUG" -t $DOCKER_REPO_OWNER/$REPO_NAME:$DOCKER_REPO_TAG -t $DOCKER_REPO_OWNER/$REPO_NAME:latest .
+  docker build --label Commit="$TRAVIS_COMMIT" --label BuildNumber="$TRAVIS_BUILD_NUMBER" --label RepoSlug="$TRAVIS_REPO_SLUG" -t $DOCKER_REPO_OWNER/$REPO_NAME:$DOCKER_REPO_TAG .
   docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   docker push $DOCKER_REPO_OWNER/$REPO_NAME:$DOCKER_REPO_TAG
 fi
