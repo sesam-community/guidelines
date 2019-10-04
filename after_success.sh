@@ -10,10 +10,7 @@ GIT_REPO_OWNER="${SLUG/%\/*/}"
 #add similar line as below for each contributer that has GIT_REPO_OWVER and DOCKER_REPO_OWNER different
 DOCKER_REPO_OWNER=${GIT_REPO_OWNER/sesam-community/sesamcommunity}
 
-if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]
-then
-  DOCKER_REPO_TAG="latest"
-elif [ -n "$TRAVIS_TAG" ]
+if [ -n "$TRAVIS_TAG" ]
 then
   DOCKER_REPO_TAG="$TRAVIS_TAG"
 fi
