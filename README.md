@@ -28,7 +28,7 @@ Steps to build your own fork:
 * Sign up to Travis CI with your Github account
 * Enable the forked repository inside Travis CI
 * Add your DOCKER_USERNAME and DOCKER_PASSWORD as environment variables for the build inside Travis CI
-* Travis CI will build and deploy once you _push_ to the master branch of your repository or create a release tag.
+* Travis CI will build and deploy once you create a new release tag in your repository.
 * Share your improvements using Pull Requests
 
 ## FAQ
