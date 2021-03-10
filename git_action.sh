@@ -19,7 +19,7 @@ echo "Docker image is set to'${DOCKER_USERNAME}/${_REPO_NAME}:${_DOCKER_REPO_TAG
 
 
 #build docker image
-docker image build --label Commit="${GITHUB_SHA}" --label BuildNumber="${GITHUB_RUN_NUMBER}" --label RepoSlug="${_REPO}" -t ${_REPO_NAME}:${_DOCKER_REPO_TAG} .
+docker build --label Commit="${GITHUB_SHA}" --label BuildNumber="${GITHUB_RUN_NUMBER}" --label RepoSlug="${_REPO}" -t ${_REPO_NAME}:${_DOCKER_REPO_TAG} .
 
 #push to dockerhub if tagged or pushed to master
 if  [ "${GITHUB_REF:0:10}" = "refs/tags/" ] || [ "${GITHUB_REF}" = "refs/heads/master" ]
@@ -29,8 +29,8 @@ then
     echo "DOCKER_USERNAME is not set.Cannot push to docker registry"
     exit 1
   fi
-  docker image tag ${_REPO_NAME}:${_DOCKER_REPO_TAG} ${DOCKER_USERNAME}/${_REPO_NAME}:${_DOCKER_REPO_TAG}
-  docker image push ${DOCKER_USERNAME}/${_REPO_NAME}:${_DOCKER_REPO_TAG}
+  docker tag ${_REPO_NAME}:${_DOCKER_REPO_TAG} ${DOCKER_USERNAME}/${_REPO_NAME}:${_DOCKER_REPO_TAG}
+  docker push ${DOCKER_USERNAME}/${_REPO_NAME}:${_DOCKER_REPO_TAG}
   docker logout
 else
   echo "Skipping docker-push as per the logic"
