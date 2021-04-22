@@ -31,7 +31,7 @@ Steps to build your own fork:
 
 CI consists of building a docker image with the updates.
 
-CD consists of pushing a docker image with the updates. pushes to 'master' branch publishes 'latest' image tag while releases publish image with the release tag.
+CD consists of pushing a docker image with the updates. pushes to 'master' branch publishes 'development' image tag while releases publish image with the release tag.
 
 With GithubActions (preferred)
   1. Make sure DOCKER_USERNAME and DOCKER_PASSWORD secrets are available to the repo at repo settings->secrets or organization settings->secrets. To push the image to an organization namespace on docker hub -that DOCKER_USERNAME has access to-, define also DOCKER_ORGNAME secret.
