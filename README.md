@@ -29,6 +29,8 @@ Steps to build your own fork:
 
 ### How to set up CI&CD
 
+_For repo without a CI/CD setup, keep reading. Otherwise, if _travis_ is already in action, jump to section "how to migrate from travis-ci to github-actions?"_
+
 CI consists of building a docker image with the updates.
 
 CD consists of pushing a docker image with the updates. pushes to 'master' branch publishes 'development' image tag while releases publish image with the release tag.
