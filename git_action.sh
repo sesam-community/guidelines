@@ -1,12 +1,13 @@
 #!/bin/bash
 ## Deploys the master branch and any tags of a sesam-community or a contributer project to dockerhub.
 ## Requires following ENVVARS: GITHUB_REPO, GITHUB_BASE_REF, GITHUB_REF, GITHUB_SHA, GITHUB_RUN_NUMBER, DOCKER_USERNAME
-## Supports  optional ENVVARS: DOCKER_REPO_NAME, DOCKER_ORGNAME
+## Supports  optional ENVVARS: DOCKER_REPO_NAME, DOCKER_ORGNAME, MAIN_BRANCH
 
 # make the build fail on any commands
 set -v
 set -e
 
+_MAIN_BRANCH="${MAIN_BRANCH:-master}"
 _REPO="${GITHUB_REPO}"
 _DEFAULT_REPO_NAME="${_REPO/#*\//}"
 _REPO_NAME="${DOCKER_REPO_NAME:-$_DEFAULT_REPO_NAME}"
@@ -23,8 +24,8 @@ echo "Docker image is set to'${_DOCKER_ID}/${_REPO_NAME}:${_DOCKER_REPO_TAG}'"
 #build docker image
 docker build --label Commit="${GITHUB_SHA}" --label BuildNumber="${GITHUB_RUN_NUMBER}" --label RepoSlug="${_REPO}" -t ${_REPO_NAME}:${_DOCKER_REPO_TAG} .
 
-#push to dockerhub if tagged or pushed to master
-if  [ "${GITHUB_REF:0:10}" = "refs/tags/" ] || [ "${GITHUB_REF}" = "refs/heads/master" ]
+#push to dockerhub if tagged or pushed to master branch
+if  [ "${GITHUB_REF:0:10}" = "refs/tags/" ] || [ "${GITHUB_REF}" = "refs/heads/${_MAIN_BRANCH}" ]
 then
   if [ -z "${_DOCKER_ID}" ]
   then
